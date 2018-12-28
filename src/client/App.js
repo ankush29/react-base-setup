@@ -1,21 +1,25 @@
-
 import React, { Component } from 'react';
-
+import { Switch, Route } from 'react-router-dom';
+import Header from './components/Header';
+import routes from './routes';
 
 export default class App extends Component {
-  state = { username: null };
-
-  componentDidMount() {
-    fetch('/api/getUsername')
-      .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
+  constructor() {
+    super();
+    this.state = {
+      title: 'test 1',
+    };
   }
 
   render() {
-    const { username } = this.state;
+    const { title } = this.state;
     return (
       <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
+        <h1>{ title }</h1>
+        <Header />
+        <Switch>
+          { routes.map(route => <Route key={route.path} {...route} />) }
+        </Switch>
       </div>
     );
   }
