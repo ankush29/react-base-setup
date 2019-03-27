@@ -5,6 +5,7 @@ import path from 'path';
 import { StaticRouter, matchPath } from 'react-router-dom';
 import { Provider as ReduxProvider } from 'react-redux';
 import Helmet from 'react-helmet';
+// import Button from '@material-ui/core/Button';
 import createStore, { history } from '../client/store';
 import initializeSession from '../client/actions/initializeSession';
 
@@ -41,6 +42,8 @@ function htmlTemplate(reactDom, reduxState, helmetData) {
     <!DOCTYPE html>
     <html>
     <head>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <meta charset="utf-8">
       ${helmetData.title.toString()}
       ${helmetData.meta.toString()}
