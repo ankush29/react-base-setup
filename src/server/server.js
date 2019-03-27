@@ -36,7 +36,7 @@ function htmlTemplate(reactDom, reduxState, helmetData) {
   `;
 }
 
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
   const context = { };
   const store = createStore();
   store.dispatch(initializeSession());
